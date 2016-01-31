@@ -1,0 +1,41 @@
+ .pizzas .price-box {
+  padding: 10px;
+  border: 1px solid black;
+  display: block;
+}
+
+.pizzas .price-box:hover {
+    text-decoration: none;
+}
+
+.pizzas .price-box:hover {
+  background: #F7A8A8;
+  color: white;
+}
+
+.row-separator {
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+}
+
+.row-margin {
+  margin-bottom: 20px;
+}
+
+.element-padding {
+  padding-bottom: 20px;
+}
+
+.button-edit-pizza, .button-edit-side, .button-edit-drink {
+    width: 127px;
+    margin-left: 10px;
+}
+
+.pizza-size {
+    margin-top: 5px;
+}
+
+.panel .edit-pizza label {
+    color: black;
+    font-size: 14px;
+}

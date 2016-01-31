@@ -1,0 +1,63 @@
+<section data-ng-controller="NewsController" data-ng-init="findOne()">
+	<div class="page-header">
+		<h1 data-ng-bind="news.name"></h1>
+		<h5 class="text-muted"><i>{{news.subtitle}}</i></h5>
+	</div>
+	<div class="row">
+		<div class="col-sm-9">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="news-image text-center">
+						<img style="width:100%" src="modules/news/img/{{news.image}}">
+						<div class="news-meta">
+							<div class="news-author">
+								<i class="glyphicon glyphicon-user"></i>
+								<span>{{news.user.displayName}}</span>
+							</div>
+							<div class="news-date">
+								<i class="glyphicon glyphicon-calendar"></i>
+								<span>{{news.created | date:'d MMMM yyyy'}}</span>
+							</div>
+						</div>
+					</div>
+					<p class="news-view-excerpt">{{news.excerpt}}</p>
+					<p class="news-view-postcontent">{{news.postContent}}</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-3">
+			<div class="panel panel-default">
+			  <div class="panel-heading"><h4>Latest news</h4></div>
+			  <div class="panel-body">
+				  <section ng-controller="NewsController" ng-init="find()">
+					  <ul class="latest-news-list">
+						 <li ng-repeat="item in news | limitTo:5">
+							<a ng-href="#!/news/{{item._id}}" class="text-muted">{{item.name}}</a>
+						 </li>
+					  </ul>
+				  </section>
+			  </div>
+			</div>
+			<div class="panel panel-default">
+			  <div class="panel-heading"><h4>Straight Outta Stove</h4></div>
+			  <div class="panel-body">
+				  <section data-ng-controller="PizzasController" data-ng-init="find()">
+					  <ul class="latest-news-list">
+						 <li data-ng-repeat="pizza in pizzas | limitTo:5">
+							<a href="/#!/pizzas" class="text-muted" href="#">{{pizza.pizzaName}}</a>
+						 </li>
+					  </ul>
+				  </section>
+			  </div>
+			</div>
+		</div>
+	</div>
+	<div class="" data-ng-show="((authentication.user) && (authentication.user.roles.indexOf('admin') > -1))">
+		<a class="btn btn-primary" href="/#!/news/{{news._id}}/edit">
+			<i class="glyphicon glyphicon-edit"></i>
+		</a>
+		<a class="btn btn-primary" data-ng-click="remove();">
+			<i class="glyphicon glyphicon-trash"></i>
+		</a>
+	</div>
+</section>

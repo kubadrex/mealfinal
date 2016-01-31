@@ -1,0 +1,139 @@
+<section data-ng-controller="HomeController">
+
+	<section ng-controller="NewsController" data-ng-init="find()">
+		<div class="row">
+			<div id="carousel-pizza" class="carousel slide" data-ride="carousel">
+			  <!-- Indicators -->
+			  <ol class="carousel-indicators">
+				  <li data-target="#carousel-pizza" ng-repeat="item in news | limitTo:3" ng-class='{active:$first}'></li>
+			  </ol>
+
+			  <!-- Wrapper for slides -->
+			  <div class="carousel-inner">
+				  <div class="item" ng-repeat="item in news | limitTo:3" ng-class='{active:$first}'>
+				  	<!-- <img src="http://placehold.it/1200x315" alt="..."> -->
+					<a ng-href="#!/news/{{item._id}}">
+						<div class="slider-image" style="background:url('modules/news/img/{{item.image}}')"></div>
+					</a>
+					<a ng-href="#!/news/{{item._id}}">
+						<div class="carousel-caption">
+							<h3>{{item.name}}</h3>
+						</div>
+					</a>
+				  </div>
+			  </div>
+
+			  <!-- Controls -->
+			  <a class="left carousel-control" href="#carousel-pizza" role="button" data-slide="prev">
+			    <span class="glyphicon glyphicon-chevron-left"></span>
+			  </a>
+			  <a class="right carousel-control" href="#carousel-pizza" role="button" data-slide="next">
+			    <span class="glyphicon glyphicon-chevron-right"></span>
+			  </a>
+			</div> <!-- Carousel -->
+		</div>
+	</section>
+
+	<!-- Tiles -->
+	<div class="row under-slider">
+		<section ng-controller="NewsController" ng-init="find()">
+			<div class="col-md-4 col-xs-4 home-tile-padding" ng-repeat="item in news.slice(3,6)">
+				<a ng-href="#!/news/{{item._id}}">
+					<div class="home-tile" style="background:url('modules/news/img/{{item.image}}')">
+						<div class="tile-text">
+							<h2>{{item.name}}</h2>
+							<h4>{{item.subtitle}}</h4>
+						</div>
+					</div>
+				</a>
+			</div>
+		</section>
+	</div>
+	<div class="row nav-tiles">
+		<table class="menu-table">
+			<tr>
+				<td style="text-align: right">
+					<img src="modules/core/img/pizza_slice2.png">
+				</td>
+				<td class="menu-table-text">
+					<h1 id="news-ind" class="text-center">Menu</h1>
+				</td>
+				<td>
+					<img src="modules/core/img/pizza_slice2.png">
+				</td>
+			</tr>
+		</table>
+
+		<div class="col-md-4 col-xs-6 home-tile-padding">
+			<a href="/#!/pizzas">
+				<div class="home-tile tile-2" style="background-image: url('modules/core/img/tile2.jpg')">
+					<div class="tile-text">
+						<h2>Pizza</h2>
+						<h4>Our delicious speciality</h4>
+					</div>
+				</div>
+			</a>
+		</div>
+		<div class="col-md-4 col-xs-6 home-tile-padding">
+			<a href="/#!/sides">
+				<div class="home-tile tile-2" style="background-image: url('modules/core/img/tile2.jpg')">
+					<div class="tile-text">
+						<h2>Sides</h2>
+						<h4>Pizza is (not) everything</h4>
+					</div>
+				</div>
+			</a>
+		</div>
+		<div class="col-md-4 col-xs-6 home-tile-padding">
+			<a href="/#!/drinks">
+				<div class="home-tile tile-2" style="background-image: url('modules/core/img/tile2.jpg')">
+					<div class="tile-text">
+						<h2>Drinks</h2>
+						<h4>Thirsty?</h4>
+					</div>
+				</div>
+			</a>
+		</div>
+		<div class="col-md-4 col-xs-6 home-tile-padding">
+			<a href="/#!/news">
+				<div class="home-tile tile-1" style="background-image: url('modules/core/img/tile1.jpg')">
+					<div class="tile-text">
+						<h2>Blog</h2>
+						<h4>Check latest news</h4>
+					</div>
+				</div>
+			</a>
+		</div>
+		<div class="col-md-4 col-xs-6 home-tile-padding">
+			<a href="/#!/restaurants">
+				<div class="home-tile tile-1" style="background-image: url('modules/core/img/tile1.jpg')">
+					<div class="tile-text">
+						<h2>Restaurants</h2>
+						<h4>How to find us</h4>
+					</div>
+				</div>
+			</a>
+		</div>
+		<div class="col-md-4 col-xs-6 home-tile-padding">
+			<a href="/#!/about-us">
+				<div class="home-tile tile-1" style="background-image: url('modules/core/img/tile1.jpg')">
+					<div class="tile-text">
+						<h2>About Us</h2>
+						<h4>Let us introduce</h4>
+					</div>
+				</div>
+			</a>
+		</div>
+	</div>
+	<div class="social-accounts">
+		<a class="btn btn-social-icon btn-lg btn-facebook" href="https://www.facebook.com/kuba.drex" target="_blank">
+			<i class="fa fa-facebook"></i>
+		</a><br>
+		<a class="btn btn-social-icon btn-lg btn-instagram" href="https://www.instagram.com/j_dee420/" target="_blank">
+			<i class="fa fa-instagram"></i>
+		</a>
+	</div>
+</section>
+<script>
+
+</script>

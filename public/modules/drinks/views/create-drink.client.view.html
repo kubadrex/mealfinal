@@ -1,0 +1,56 @@
+<section data-ng-controller="DrinksController">
+    <div class="page-header">
+        <h1>New Drink</h1>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="col-md-12">
+                <form class="form-horizontal" data-ng-submit="create()" novalidate>
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-sm-6">
+                              <img src="modules/drinks/img/drinks.jpg" class="img-responsive">
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label" for="name">Name</label>
+                                    <div class="controls">
+                                        <input type="text" data-ng-model="name" id="name" class="form-control" placeholder="Name" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="volume">Volume</label>
+                                    <div class="controls">
+                                        <input type="text" data-ng-model="volume" id="volume" class="form-control" placeholder="Volume" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="name">Price</label>
+                                    <div class="controls">
+                                        <input type="text" data-ng-model="price" id="price" class="form-control" placeholder="Price" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="name">Thumbnail</label>
+                                    <div class="controls">
+                                        <input type="text" data-ng-model="thumbnail" id="thumbnail" class="form-control" placeholder="Thumbnail" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-sm-push-6">
+                                <div class="form-group text-center">
+                                    <button type="submit" class="btn btn-block btn-lg btn-success">Save & Exit</button>
+                                </div>
+                            </div>
+                        </div>
+        				<div data-ng-show="error" class="text-danger">
+        					<strong data-ng-bind="error"></strong>
+        				</div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

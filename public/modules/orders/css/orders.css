@@ -1,0 +1,33 @@
+#list-orders thead tr {
+    background-color: #E8E8E8;
+}
+
+#list-orders, #list-orders th {
+    text-align: center;
+}
+
+.order-details {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.order-details td:nth-child(1) {
+    width: 40%;
+}
+
+.vert-top {
+    vertical-align: top;
+}
+
+.order-details tfoot {
+    background-color: #E8E8E8;
+    font-weight: bold;
+}
+
+.order-details tr td:nth-child(2) {
+    font-weight: bold;
+}
+
+.order-details-row {
+    line-height: 25px;
+}

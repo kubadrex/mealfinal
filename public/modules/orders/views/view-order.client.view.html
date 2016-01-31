@@ -1,0 +1,149 @@
+<section data-ng-controller="OrdersController" data-ng-init="findOne()">
+	<div class="page-header">
+		<h1>Order details</h1>
+	</div>
+	<div class="row order-details-row">
+		<div class="col-md-6">
+			<div class="panel panel-default">
+		  		<div class="panel-heading">
+		    		<h3 class="panel-title">Order</h3>
+		  		</div>
+		  		<div class="panel-body">
+		    		<table class="order-details">
+						<tbody>
+							<tr>
+								<td>Order No.</td>
+								<td>#{{order._id}}</td>
+							</tr>
+							<tr>
+								<td>Sale Time</td>
+								<td>{{order.created | date:'medium'}}</td>
+							</tr>
+							<tr>
+								<td>Order Status</td>
+								<td>{{order.orderStatus}}</td>
+							</tr>
+						</tbody>
+					</table>
+		  		</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Buyer Information</h3>
+				</div>
+				<div class="panel-body">
+					<table class="order-details">
+						<tbody>
+							<tr>
+								<td>Customer Name</td>
+								<td>{{order.user.displayName}}</td>
+							</tr>
+							<tr>
+								<td class="vert-top">Shipping Adress</td>
+								<td>
+									<table>
+										<tr data-ng-repeat="address in order.shippingAddress.split(',')">
+											<td>{{address}}</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Payment Information</h3>
+				</div>
+				<div class="panel-body">
+					<table class="order-details">
+						<tbody>
+							<tr>
+								<td>Payment Type</td>
+								<td>{{order.type}}</td>
+							</tr>
+							<tr>
+								<td>Payment Status</td>
+								<td class="capitalize">{{order.status}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Shipping & Handling</h3>
+				</div>
+				<div class="panel-body">
+					<table class="order-details">
+						<tbody>
+							<tr>
+								<td>Delivery Method</td>
+								<td class="capitalize">{{order.shippingType}}</td>
+							</tr>
+							<tr>
+								<td>Delivery Cost</td>
+								<td>{{order.shipping | priceFromPence}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Order Totals</h3>
+				</div>
+				<div class="panel-body">
+					<table class="order-details table">
+						<thead>
+							<th>Product name</th>
+							<th class="text-right">Price</th>
+						</thead>
+						<tbody>
+							<tr data-ng-repeat="order in order.pizzas">
+								<td>{{order.name}}</td>
+								<td class="text-right">{{order.total | priceFromPence}}</td>
+							</tr>
+							<tr data-ng-repeat="order in order.sides">
+								<td>{{order.name}}</td>
+								<td class="text-right">{{order.total | priceFromPence}}</td>
+							</tr>
+							<tr data-ng-repeat="order in order.drinks">
+								<td>{{order.name}}</td>
+								<td class="text-right">{{order.total | priceFromPence}}</td>
+							</tr>
+							<tr>
+								<td>{{order.shipping === 0 ? "Shipping - Collection" : "Shipping - Delivery"}}</td>
+								<td class="text-right">{{order.shipping | priceFromPence}}</td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td></td>
+								<td class="text-right">Total: {{ (order.total) | priceFromPence}}</td>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="" data-ng-show="((authentication.user) && (authentication.user.roles.indexOf('admin') > -1))">
+		<a class="btn btn-primary" href="/#!/orders/{{order._id}}/edit">
+			<i class="glyphicon glyphicon-edit"></i>
+		</a>
+		<a class="btn btn-primary" data-ng-click="remove();">
+			<i class="glyphicon glyphicon-trash"></i>
+		</a>
+	</div>
+</section>

@@ -1,0 +1,32 @@
+<section data-ng-controller="OrdersController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Orders</h1>
+    </div>
+    <table id="list-orders" class="table table-striped">
+      <thead>
+          <tr>
+              <th>Ref. No.</th>
+              <th>Date</th>
+              <th>Amount</th>
+              <th>Status</th>
+              <th># #</th>
+          </tr>
+      </thead>
+      <tr data-ng-repeat="order in orders">
+          <td>{{order._id}}</td>
+          <td>{{order.created | date:'medium'}}</td>
+          <td>{{order.total | priceFromPence}}</td>
+          <td>
+              <label class="label" ng-class="{'label-warning': order.orderStatus=='Waiting for payment',
+              'label-info': order.orderStatus=='Order in preparation',
+              'label-primary': order.orderStatus=='Order in delivery',
+              'label-success': order.orderStatus=='Order completed'}">{{order.orderStatus}}</label>
+          </td>
+          <td><a data-ng-href="#!/orders/{{order._id}}">View</a></td>
+      </tr>
+    </table>
+
+    <div class="alert alert-warning text-center" data-ng-hide="!orders.$resolved || orders.length">
+    	No Orders yet
+    </div>
+</section>

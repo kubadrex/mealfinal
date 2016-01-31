@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col-md-3 text-right basket-icon">
+        <i class="glyphicon glyphicon-shopping-cart"></i>
+    </div>
+    <div class="col-md-9 basket-details" style="white-space: nowrap">{{ ngCart.getTotalItems() }}
+        <ng-pluralize count="ngCart.getTotalItems()" when="{1: 'item', 'other':'items'}"></ng-pluralize>
+        for {{ ngCart.totalCost() | priceFromPence }}
+    </div>
+    <div class="col-md-9 mobile-basket-details" style="white-space: nowrap">
+        {{ ngCart.totalCost() | priceFromPence }}
+    </div>
+</div>

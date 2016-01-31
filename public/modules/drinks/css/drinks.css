@@ -1,0 +1,17 @@
+.drinks .price-box {
+    color: rgb(85, 85, 85);
+    font-size:20px;
+}
+
+.drinks .price-box:hover {
+    text-decoration: none;
+}
+.drink-tile {
+    cursor: pointer;
+}
+
+.drink-tile:hover {
+    color: #555;
+    text-decoration: none;
+    background-color: #f5f5f5;
+}
